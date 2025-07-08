@@ -1,0 +1,116 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fire Department OMS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'brand-primary': '#DC2626', // Red-600
+              'brand-secondary': '#F97316', // Orange-500
+              'dark-bg': '#111827', // Gray-900
+              'dark-card': '#1F2937', // Gray-800
+              'dark-border': '#374151', // Gray-700
+              'dark-text': '#F9FAFB', // Gray-100
+              'dark-text-secondary': '#9CA3AF', // Gray-400
+            },
+          }
+        }
+      }
+    </script>
+    <style>
+      @media print {
+        .printable-content {
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 100%;
+          padding: 2rem;
+        }
+        .no-print {
+          display: none !important;
+        }
+        /* Overriding tailwind modal styles for printing */
+        .printable-content.bg-dark-card {
+            background-color: white !important;
+            color: black !important;
+            border: none !important;
+            box-shadow: none !important;
+        }
+         .printable-content .text-dark-text,
+         .printable-content .text-dark-text * {
+            color: black !important;
+         }
+         .printable-content .text-dark-text-secondary {
+            color: #4B5563 !important; /* gray-600 */
+         }
+         .printable-content .divide-dark-border,
+         .printable-content .border-dark-border,
+         .printable-content .border-b-2 {
+            border-color: #E5E7EB !important; /* gray-200 */
+         }
+      }
+
+      /* Custom styles for range slider */
+      input[type=range].compartment-slider {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 100%;
+        height: 8px;
+        background: #374151; /* dark-border */
+        border-radius: 5px;
+        outline: none;
+        opacity: 0.7;
+        -webkit-transition: .2s;
+        transition: opacity .2s;
+      }
+      input[type=range].compartment-slider:hover {
+        opacity: 1;
+      }
+      input[type=range].compartment-slider::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 20px;
+        height: 20px;
+        background: #F97316; /* brand-secondary */
+        border-radius: 50%;
+        cursor: pointer;
+        border: 2px solid #1F2937; /* dark-card */
+      }
+      input[type=range].compartment-slider::-moz-range-thumb {
+        width: 20px;
+        height: 20px;
+        background: #F97316;
+        border-radius: 50%;
+        cursor: pointer;
+        border: 2px solid #1F2937;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.1.0/",
+    "react": "https://esm.sh/react@^19.1.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.1.0/",
+    "react-router-dom": "https://esm.sh/react-router-dom@^7.6.3",
+    "@google/genai": "https://esm.sh/@google/genai@^1.7.0",
+    "recharts": "https://esm.sh/recharts@^2.12.7",
+    "recharts/": "https://esm.sh/recharts@^2.12.7/",
+    "prop-types": "https://esm.sh/prop-types@^15.8.1"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body class="bg-dark-bg">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
